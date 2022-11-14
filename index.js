@@ -12,11 +12,7 @@ const server = http.createServer(function (request, response) {
 
 server.listen(8081);
 
-setTimeout(()=>{
-   server.close(()=>{
-      console.log("Server Stopped!")
-   })
-},10000)
+
 
 // Console will print the message
 console.log('Server running ....')
