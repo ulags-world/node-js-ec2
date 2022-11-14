@@ -1,6 +1,6 @@
 var http = require("http");
 
-http.createServer(function (request, response) {
+const server = http.createServer(function (request, response) {
    // Send the HTTP header 
    // HTTP Status: 200 : OK
    // Content Type: text/plain
@@ -8,7 +8,15 @@ http.createServer(function (request, response) {
    
    // Send the response body as "Hello World"
    response.end('Hello from inside the instance\n');
-}).listen(8081);
+})
+
+server.listen(8081);
+
+setTimeout(()=>{
+   server.close(()=>{
+      console.log("Server Stopped!")
+   })
+},10000)
 
 // Console will print the message
 console.log('Server running ....')
